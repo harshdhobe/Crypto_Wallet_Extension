@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from 'react-router-dom';
+import { ethers } from "ethers";
+// const { ethers } = require('ethers');
 
 
 
 const CreateAccount = () => {
+    const [newSeedPhrase, setnewSeedPhrase] = useState(null);
     const navigate = useNavigate();
+
+    function generateWallet() {
+        const wallet = ethers.Wallet.createRandom();
+        const letters = wallet.mnemonic.phrase;
+        //console.log(letters);
+        setnewSeedPhrase(letters);
+    }
+
     return (
         <div className='content'>
 
@@ -18,10 +29,16 @@ const CreateAccount = () => {
                     recover your wallet in the future.
                 </div>
             </div>
-            <Button type="primary" className='frontPageButton'>Generate Seed Phrase</Button>
-            <Card className='seedPhraseContainer'></Card>
+            <Button type="primary" className='frontPageButton'
+                onClick={() => generateWallet()}
+
+            >Generate Seed Phrase</Button>
+            <Card className='seedPhraseContainer'>
+                {newSeedPhrase && <pre style={{ whiteSpace: "pre-wrap" }}>{newSeedPhrase}</pre>}
+
+            </Card>
             <Button type="primary" className='frontPageButton'>Open Your New Wallet</Button>
-            
+
             <p className='frontPageBottom'
                 onClick={() => navigate("/")}
             >Back Home</p>
