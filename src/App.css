@@ -36,7 +36,7 @@ select {
 .frontPageButton {
   width: 90%;
   margin-top: 25px;
-  
+
 }
 
 
@@ -75,4 +75,20 @@ select {
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+}
+
+.seedPhraseContainer {
+  width: 310px;
+  min-height: 160px;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.frontPageBottom:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.frontPageBottom{
+  margin-top: 30px;
 }
