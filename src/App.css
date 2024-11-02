@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+  width: 350px;
+  height: 600px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+.dropdown {
+  margin-right: 20px;
+
+}
+
+header {
+  background-color: #4a4e69;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+select {
+  padding: 8px;
+  border: none;
+  margin-right: 10px;
+}
+
+.frontPageLogo {
+  width: 80%;
+  padding: 25px;
+}
+
+.frontPageButton {
+  width: 90%;
+  margin-top: 25px;
+  
+}
+
+
+.content {
+  text-align: center;
+  width: 350px;
+  height: 520px;
+  overflow-y: auto;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.myContent {
+  margin-bottom: 160px;
+  margin-top: 25px;
+}
+
+.custom-container {
+  margin-left: 25px;
+  margin-top: 25px;
+
+
+
+}
