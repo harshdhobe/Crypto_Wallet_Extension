@@ -1,9 +1,11 @@
 import React from 'react'
 import logo from '../assets/mwallet.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
+    const navigate = useNavigate();
     return (
         <div className='Content'>
             <img src={logo} className='frontPageLogo' />
@@ -16,12 +18,18 @@ function Home() {
             <div className='frontPageButton'>
 
                 <div class="d-grid gap-2 custom-container">
-                    <button class="btn btn-primary" type="button">Create a Wallet</button>
+                    <button class="btn btn-primary" type="button"
+                        onClick={() => navigate("/yourWallet")}
+
+                    >Create a Wallet</button>
 
                 </div>
 
                 <div class="d-grid gap-2 custom-container">
-                    <button class="btn btn-secondary" type="button">SignIn with seed phrase</button>
+                    <button class="btn btn-secondary" type="button"
+                        onClick={() => navigate("/Recover")}
+
+                    >SignIn with seed phrase</button>
 
                 </div>
 

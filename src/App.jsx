@@ -6,6 +6,9 @@ import logo from './assets/moralisLogo.svg'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
+import CreateAccount from './components/CreateAccount'
+import RecoverAccount from './components/RecoverAccount'
+
 
 
 function App() {
@@ -24,13 +27,15 @@ function App() {
 
         </select>
 
-        
+
 
 
       </header>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/yourWallet" element={< CreateAccount />} />
+          <Route path="/Recover" element={<RecoverAccount />} />
 
 
 
