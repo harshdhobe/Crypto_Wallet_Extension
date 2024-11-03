@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import logo from './assets/moralisLogo.svg'
 import ReactDOM from "react-dom/client";
@@ -10,9 +8,10 @@ import CreateAccount from './components/CreateAccount'
 import RecoverAccount from './components/RecoverAccount'
 
 
-
 function App() {
   const [selectedChain, setSelectedChain] = useState("0x1");
+  const [wallet, setWallet] = useState("null");
+  const [seedPhrase, setSeedPhrase] = useState("null");
 
   return (
 
@@ -34,7 +33,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/yourWallet" element={< CreateAccount />} />
+          <Route path="/yourWallet" element={< CreateAccount
+            setWallet={setWallet}
+            setSeedPhrase={setSeedPhrase}
+
+          />} />
           <Route path="/Recover" element={<RecoverAccount />} />
 
 

@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 
 
 
-const CreateAccount = () => {
+const CreateAccount = ({ setWallet, setSeedPhrase }) => {
     const [newSeedPhrase, setnewSeedPhrase] = useState(null);
     const navigate = useNavigate();
 
@@ -17,6 +17,8 @@ const CreateAccount = () => {
         //console.log(letters);
         setnewSeedPhrase(letters);
     }
+     
+    
 
     return (
         <div className='content'>
@@ -37,7 +39,11 @@ const CreateAccount = () => {
                 {newSeedPhrase && <pre style={{ whiteSpace: "pre-wrap" }}>{newSeedPhrase}</pre>}
 
             </Card>
-            <Button type="primary" className='frontPageButton'>Open Your New Wallet</Button>
+
+            <Button type="primary" className='frontPageButton'
+                onClick={() => setWalletAndMnemonic()}
+            
+            >Open Your New Wallet</Button>
 
             <p className='frontPageBottom'
                 onClick={() => navigate("/")}
