@@ -27,9 +27,8 @@ function App() {
         </select>
 
 
-
-
       </header>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
