@@ -61,4 +61,4 @@ const CreateAccount = ({ setWallet, setSeedPhrase }) => {
     )
 }
 
-export default CreateAccount
+export default CreateAccount;

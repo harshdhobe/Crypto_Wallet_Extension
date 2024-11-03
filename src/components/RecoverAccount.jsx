@@ -77,4 +77,4 @@ const RecoverAccount = () => {
     )
 }
 
-export default RecoverAccount
+export default RecoverAccount;
