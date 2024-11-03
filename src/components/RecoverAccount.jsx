@@ -14,6 +14,22 @@ const RecoverAccount = () => {
         settypedSeed(e.target.value);
     }
 
+
+    function recoverWallet() {
+        let recoveredWallet;
+        try {
+            recoveredWallet = ethers.Wallet.fromPhrase(typedSeed);
+        } catch (err) {
+            setNonValid(true);
+            return;
+        }
+
+        setSeedPhrase(typedSeed);
+        setWallet(recoveredWallet.address);
+        navigate("/yourwallet");
+        return;
+    }
+
     return (
         <>
             <div className='content'>
