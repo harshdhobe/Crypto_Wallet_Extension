@@ -17,8 +17,13 @@ const CreateAccount = ({ setWallet, setSeedPhrase }) => {
         //console.log(letters);
         setnewSeedPhrase(letters);
     }
-     
-    
+
+    function setWalletAndMnemonic() {
+        setnewSeedPhrase(newSeedPhrase);
+        setWallet(ethers.Wallet.fromPhrase(newSeedPhrase).address)
+
+    }
+
 
     return (
         <div className='content'>
@@ -42,7 +47,7 @@ const CreateAccount = ({ setWallet, setSeedPhrase }) => {
 
             <Button type="primary" className='frontPageButton'
                 onClick={() => setWalletAndMnemonic()}
-            
+
             >Open Your New Wallet</Button>
 
             <p className='frontPageBottom'
