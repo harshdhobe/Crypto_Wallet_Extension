@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount'
 import RecoverAccount from './components/RecoverAccount'
+import WalletView from './components/WalletView';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
           />} />
           <Route path="/Recover" element={<RecoverAccount />} />
+          <Route path="/walletView" element={<WalletView/>} />
 
 
 
