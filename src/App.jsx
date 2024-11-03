@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount'
 import RecoverAccount from './components/RecoverAccount'
+import WalletView from './components/WalletView';
+import Home from './components/Home';
+import CreateAccount from './components/CreateAccount';
+import RecoverAccount from './components/RecoverAccount';
 
 
 function App() {
@@ -29,22 +33,44 @@ function App() {
 
       </header>
 
-      <BrowserRouter>
+      {wallet && seedPhrase ? (
+        <Routes>
+          <Route
+            path="/yourwallet"
+            element={
+              <WalletView
+                wallet={wallet}
+                setWallet={setWallet}
+                seedPhrase={seedPhrase}
+                setSeedPhrase={setSeedPhrase}
+                selectedChain={selectedChain}
+              />
+            }
+          />
+        </Routes>
+      ) : (
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/yourWallet" element={< CreateAccount
-            setWallet={setWallet}
-            setSeedPhrase={setSeedPhrase}
-
-          />} />
-          <Route path="/Recover" element={<RecoverAccount />} />
-
-
-
+          <Route
+            path="/recover"
+            element={
+              <RecoverAccount
+                setSeedPhrase={setSeedPhrase}
+                setWallet={setWallet}
+              />
+            }
+          />
+          <Route
+            path="/yourwallet"
+            element={
+              <CreateAccount
+                setSeedPhrase={setSeedPhrase}
+                setWallet={setWallet}
+              />
+            }
+          />
         </Routes>
-
-      </BrowserRouter>
-
+      )}
 
 
 

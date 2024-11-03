@@ -8,4 +8,4 @@ const WalletView = () => {
   )
 }
 
-export default WalletView
+export default WalletView;
