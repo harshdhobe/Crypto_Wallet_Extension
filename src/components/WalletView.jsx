@@ -1,4 +1,19 @@
 import React from "react";
+import { LogoutOutlined } from "@ant-design/icons";
+import {
+    Divider,
+    Tooltip,
+    List,
+    Avatar,
+    Spin,
+    Tabs,
+    Input,
+    Button,
+} from "antd";
+
+import { useNavigate } from "react-router-dom";
+
+
 
 
 const tokens = [
@@ -34,6 +49,7 @@ const nfts = [
     "https://nft-preview-media.s3.us-east-1.amazonaws.com/evm/0x1/0x749f5ddf5ab4c1f26f74560a78300563c34b417d/0x90cae88ffc909feab8e4df76abd0652dee98b7bffab29597d898260d91c20aa1/high.jpeg",
 ];
 
+
 function WalletView({
     wallet,
     setWallet,
@@ -42,10 +58,28 @@ function WalletView({
     selectedChain
 }) {
 
+    const navigate = useNavigate();
+
+    function logout() {
+        setWallet(null);
+        setSeedPhrase(null);
+        navigate("/")
+        // Add any other cleanup logic if necessary
+    }
+
+
     return (
         <>
             <div className="content">
-                {wallet}
+                <div className="wallet-part">
+                    <div className="logoutButton" onClick={logout}>
+                        <LogoutOutlined />
+                    </div>
+                    <div>
+                        {wallet.slice(0, 4)}...{wallet.slice(38)}
+                    </div>
+                </div>
+
             </div>
         </>
     );

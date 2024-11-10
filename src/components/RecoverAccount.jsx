@@ -60,7 +60,7 @@ const RecoverAccount = () => {
                     Recover Wallet
                 </Button>
 
-                {nonValid && <p style={{ color: "red" }}> Invalid Seed Phrase</p>}
+                {!nonValid && <p style={{ color: "red" }}> Invalid Seed Phrase</p>}
 
                 <p className='backHome2'
                     onClick={() => navigate("/")}
