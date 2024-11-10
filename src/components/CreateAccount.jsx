@@ -8,20 +8,17 @@ import { ethers } from "ethers";
 
 
 const CreateAccount = ({ setWallet, setSeedPhrase }) => {
-    const [newSeedPhrase, setnewSeedPhrase] = useState(null);
+    const [newSeedPhrase, setNewSeedPhrase] = useState(null);
     const navigate = useNavigate();
 
     function generateWallet() {
-        const wallet = ethers.Wallet.createRandom();
-        const letters = wallet.mnemonic.phrase;
-        //console.log(letters);
-        setnewSeedPhrase(letters);
+        const mnemonic = ethers.Wallet.createRandom().mnemonic.phrase;
+        setNewSeedPhrase(mnemonic)
     }
 
     function setWalletAndMnemonic() {
-        setnewSeedPhrase(newSeedPhrase);
+        setSeedPhrase(newSeedPhrase);
         setWallet(ethers.Wallet.fromPhrase(newSeedPhrase).address)
-
     }
 
 

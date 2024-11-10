@@ -42,7 +42,7 @@ function WalletView() {
     return (
         <>
             <div className="content">
-               <h3>Wallet view</h3>
+               wallet view
             </div>
         </>
     );
