@@ -6,13 +6,13 @@ import {
     List,
     Avatar,
     Spin,
-    Tabs,
     Input,
     Button,
 } from "antd";
 
 import { useNavigate } from "react-router-dom";
-
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 const tokens = [
     {
@@ -83,7 +83,26 @@ function WalletView({
 
                 </div>
 
-                <Divider />
+                <div>
+                    <Tabs
+                        defaultActiveKey="profile"
+                        id="fill-tab-example"
+                        className="mb-3"
+                        fill
+                    >
+                        <Tab eventKey="Tokens" title="Tokens">
+                            Tokens
+                        </Tab>
+                        <Tab eventKey="NFTs" title="NFTs">
+                            NFTs
+                        </Tab>
+                        <Tab eventKey="Transfer" title="Transfer">
+                            Transfer
+                        </Tab>
+                    </Tabs>
+                </div>
+
+
 
 
 
