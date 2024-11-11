@@ -14,8 +14,6 @@ import {
 import { useNavigate } from "react-router-dom";
 
 
-
-
 const tokens = [
     {
         symbol: "ETH",
@@ -71,14 +69,24 @@ function WalletView({
     return (
         <>
             <div className="content">
-                <div className="wallet-part">
-                    <div className="logoutButton" onClick={logout}>
-                        <LogoutOutlined />
-                    </div>
-                    <div>
-                        {wallet.slice(0, 4)}...{wallet.slice(38)}
-                    </div>
+
+                <div className="logoutButton" onClick={logout}>
+                    <LogoutOutlined />
+
                 </div>
+
+                <div className="wallet-part" >
+                    Wallet
+                    <br></br>
+                    <span>Address - </span>
+                    {wallet.slice(0, 4)}...{wallet.slice(38)}
+
+                </div>
+
+                <Divider />
+
+
+
 
             </div>
         </>
