@@ -48,7 +48,7 @@ const nfts = [
     "https://nft-preview-media.s3.us-east-1.amazonaws.com/evm/0x1/0xd774557b647330c91bf44cfeab205095f7e6c367/0xfb76f9ef3adabc27d77c615959f9e22dea24ac7d6a10af3458b3481e5f5e0f10/high.png",
     ,
     "https://nft-preview-media.s3.us-east-1.amazonaws.com/evm/0x1/0x749f5ddf5ab4c1f26f74560a78300563c34b417d/0x90cae88ffc909feab8e4df76abd0652dee98b7bffab29597d898260d91c20aa1/high.jpeg",
-    
+
 ];
 
 
@@ -91,7 +91,7 @@ function WalletView({
 
                 <div>
                     <Tabs
-                        defaultActiveKey="profile"
+                        defaultActiveKey="1"
                         id="fill-tab-example"
                         className="mb-3"
                         fill
@@ -123,10 +123,6 @@ function WalletView({
                                     )
                                 })}
 
-
-
-
-
                             </>) : (<>
                                 <span>You seem to not have any nfts yet</span>
                                 <p className="frontPageBottom">
@@ -143,7 +139,7 @@ function WalletView({
                             </>)}
                         </Tab>
                         <Tab eventKey="Transfer" title="Transfer">
-                            Transfer
+                            <diV></diV>
                         </Tab>
                     </Tabs>
                 </div>
