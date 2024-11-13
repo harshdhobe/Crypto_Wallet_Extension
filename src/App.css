@@ -130,3 +130,14 @@ select {
   margin-left: 280px;
   margin-top: 10px;
 }
+
+.token-card {}
+
+.token-content-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  border: 0.1px solid black;
+  margin: 5px;
+  padding: 2px;
+}
