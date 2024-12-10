@@ -18,12 +18,25 @@ app.use(express.json());
 app.get("/getTokens", async (req, res) => {
 
     const { chain, userAddress } = req.query;
+
     const tokens = await Moralis.EvmApi.token.getWalletTokenBalances({
         "chain": chain,
         "address": userAddress,
     });
 
-    const jsonResponse = { tokens: tokens.raw }
+    //checks needed
+    const nfts = await Moralis.EvmApi.nft.getWalletNFTs({
+        "chain": chain,
+        "address": userAddress,
+        "mediaItems": true
+    });
+
+    const jsonResponse = {
+        tokens: tokens.raw,
+        nfts: nfts.raw
+    };
+
+
     return res.status(200).json(jsonResponse);
 });
 
