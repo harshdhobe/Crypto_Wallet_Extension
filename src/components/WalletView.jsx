@@ -97,6 +97,11 @@ function WalletView({
         setWallet(null);
         setSeedPhrase(null);
         navigate("/")
+        setTokens(null);
+        setNfts(null);
+        setBalence(0);
+        
+
         // Add any other cleanup logic if necessary
     }
 
