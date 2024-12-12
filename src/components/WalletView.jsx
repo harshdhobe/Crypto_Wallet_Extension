@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
 import {
     Divider,
@@ -15,6 +15,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import ListGroup from 'react-bootstrap/ListGroup';
 import TokenCard from "./TokenCard";
+import axios from "axios";
 
 
 const tokens = [
@@ -63,6 +64,34 @@ function WalletView({
 }) {
 
     const navigate = useNavigate();
+    const [tokens, setTokens] = useState(false);
+    const [nft, setNfts] = useState(false);
+    const [balence, setBalence] = useState(false);
+
+    async function getAccountsToken() {
+        const res = await axios.get(`http://localhost:3001/getTokens`, {
+            params: {
+                userAddress: wallet,
+                chain: selectedChain,
+            }
+        });
+        
+        const response = res.data;
+        
+        if (response.tokens.length > 0) {
+            setTokens(response.tokens);
+        }
+
+        if (response.nfts.length > 0) {
+            setNfts(response.nfts);
+        }
+
+        setBalence(response.balence);
+
+    }
+
+
+
 
     function logout() {
         setWallet(null);
@@ -70,6 +99,23 @@ function WalletView({
         navigate("/")
         // Add any other cleanup logic if necessary
     }
+
+    useEffect(() => {
+        if (!wallet || !selectedChain) return;
+        setTokens(null);
+        setNfts(null);
+        setBalence(0);
+        getAccountsToken();
+    }, [])
+    
+    useEffect(() => {
+        if (!wallet) return;
+        setTokens(null);
+        setNfts(null);
+        setBalence(0);
+        getAccountsToken();
+    }, [selectedChain]);
+
 
 
     return (
